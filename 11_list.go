@@ -64,6 +64,7 @@ func main(){
     fmt.Println(p)
 
 
+    //切片自己不拥有任何数据 对切片的任何修改都会反映在底层数组上
     darr := [...] int {57, 89, 90, 82, 100, 78, 67, 69, 59}
     dslice := darr[2:5]
     fmt.Println("array before", darr)
@@ -71,6 +72,20 @@ func main(){
         dslice[i] ++
     }
     fmt.Println("array after ", darr)
+
+
+    fruitarray := [...] string {"apple", "orange", "grape", "mango", "watermelon", "pineapple", "chikoo"}
+    fruitslice := fruitarray[2:5]
+    fmt.Printf("length of slice %d capacity %d\n", len(fruitslice), cap(fruitslice))
+
+    q := make([]int, 5, 5)
+    fmt.Println(q)
+
+    //追加切片元素
+    cars := [] string {"car1", "car2", "car3"}
+    fmt.Println("cars:", cars, "has old length", len(cars), "and capacity", cap(cars))
+    cars = append(cars, "car4")
+    fmt.Println("cars", cars, "has new length", len(cars), "and capacity", cap(cars))
 }
 
 
